@@ -1,14 +1,17 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(TcobsBench LANGUAGES C)
+project(byte-stuffing-tryouts LANGUAGES C)
 
-add_executable(TcobsBench
+add_executable(byte-stuffing-tryouts
     ${CMAKE_SOURCE_DIR}/main.c
+    ${CMAKE_SOURCE_DIR}/cobs/cobs.c
     ${CMAKE_SOURCE_DIR}/cobs/cobsr.c
     ${CMAKE_SOURCE_DIR}/tcobs/tcobs.c
+    ${CMAKE_SOURCE_DIR}/rle/rle.c
 )
 
-target_include_directories(TcobsBench PRIVATE
+target_include_directories(byte-stuffing-tryouts PRIVATE
     ${CMAKE_SOURCE_DIR}/cobs
     ${CMAKE_SOURCE_DIR}/tcobs
+    ${CMAKE_SOURCE_DIR}/rle
 )
