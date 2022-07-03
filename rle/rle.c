@@ -8,7 +8,7 @@
 // 0 to 127 --> Copy the next n + 1 symbols verbatim
 #define MAX_COPY 128
 
-bool is_out_of_bounds(const size_t bytes_required, const uint8_t* src_ptr, const uint8_t* src_end_ptr)
+static bool is_out_of_bounds(const size_t bytes_required, const uint8_t* src_ptr, const uint8_t* src_end_ptr)
 {
     size_t bytes_available = src_end_ptr - src_ptr;
     if (bytes_available < bytes_required)
@@ -17,14 +17,14 @@ bool is_out_of_bounds(const size_t bytes_required, const uint8_t* src_ptr, const
     return false;
 }
 
-void write_run_segment(const size_t n, uint8_t** dst_write_ptr, const uint8_t** segment_start, const uint8_t** segment_end)
+static void write_run_segment(const size_t n, uint8_t** dst_write_ptr, const uint8_t** segment_start, const uint8_t** segment_end)
 {
     *(*dst_write_ptr)++ = (uint8_t)(1 - n); // Write run header
     *(*dst_write_ptr)++ = **segment_start;  // Write run symbol
     *segment_start = *segment_end;
 }
 
-void write_copy_segment(const size_t n, uint8_t** dst_write_ptr, const uint8_t** segment_start, const uint8_t** segment_end)
+static void write_copy_segment(const size_t n, uint8_t** dst_write_ptr, const uint8_t** segment_start, const uint8_t** segment_end)
 {
     *(*dst_write_ptr)++ = n - 1; // Write copy header
     while (*segment_start < *segment_end) {

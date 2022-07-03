@@ -18,6 +18,7 @@
 #include "rle/rle.h"
 
 #define INPUT_FILE "tricePackagesGrepSortUniqPlainNoDescriptor.txt"
+
 #define MAX_LINE_LENGTH 2048
 #define MAX_DATA_LENGTH 1024
 
