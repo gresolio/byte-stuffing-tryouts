@@ -1,5 +1,6 @@
 ﻿---
 BasedOnStyle: WebKit
+AlignConsecutiveMacros: 'true'
 AlignTrailingComments: 'true'
 AllowShortEnumsOnASingleLine: 'false'
 BreakBeforeBraces: Linux
